@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Bargain Finder</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🔍 Pokemon Card Bargain Finder</h1>
+            <p>Find the best deals on Pokemon cards across eBay and Vinted</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="cardName" 
+                        placeholder="Search for a card (e.g., 'Charizard', 'Pikachu EX')"
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="btn btn-primary">🔍 Search</button>
+                </div>
+
+                <!-- Threshold Slider -->
+                <div class="threshold-control">
+                    <label for="thresholdSlider">Discount Threshold: <span id="thresholdValue">20</span>%</label>
+                    <input 
+                        type="range" 
+                        id="thresholdSlider" 
+                        min="10" 
+                        max="50" 
+                        value="20"
+                        step="5"
+                    >
+                    <small>Only show deals below this % of market price</small>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="market-info">
+                    <h3>Market Price: <span id="marketPrice">-</span></h3>
+                    <small id="marketSource">Data from Pokemon TCG API</small>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="ebay">eBay</button>
+                    <button class="tab-btn" data-tab="vinted">Vinted</button>
+                </div>
+
+                <!-- eBay Results -->
+                <div class="tab-content active" id="ebayTab">
+                    <div id="ebayResults" class="results-table-wrapper">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Market Price</th>
+                                    <th>Discount</th>
+                                    <th>Condition</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ebayTableBody">
+                                <tr><td colspan="6" class="loading">Loading eBay listings...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vinted Results -->
+                <div class="tab-content" id="vintedTab">
+                    <div id="vintedResults" class="results-table-wrapper">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Market Price</th>
+                                    <th>Discount</th>
+                                    <th>Condition</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vintedTableBody">
+                                <tr><td colspan="6" class="loading">Loading Vinted listings...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Watchlist Section -->
+            <section class="watchlist-section">
+                <h2>📋 My Watchlist</h2>
+                
+                <div class="add-to-watchlist">
+                    <input 
+                        type="text" 
+                        id="watchlistCardName" 
+                        placeholder="Card name to watch"
+                    >
+                    <input 
+                        type="text" 
+                        id="watchlistCardSet" 
+                        placeholder="Set (optional)"
+                    >
+                    <input 
+                        type="number" 
+                        id="watchlistThreshold" 
+                        placeholder="Threshold %" 
+                        value="20"
+                        min="10"
+                        max="50"
+                    >
+                    <button id="addWatchlistBtn" class="btn btn-secondary">+ Add to Watchlist</button>
+                </div>
+
+                <div id="watchlistContainer" class="watchlist-container">
+                    <p class="placeholder">No cards in watchlist. Add one above!</p>
+                </div>
+            </section>
+
+            <!-- Recent Deals Section -->
+            <section class="deals-section">
+                <h2>⚡ Recent Deals Found</h2>
+                <div id="dealsContainer" class="deals-container">
+                    <p class="placeholder">No deals found yet. Start searching or add to watchlist!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🤖 Automated deal detection | 📍 Data from Pokemon TCG API, eBay, and Vinted</p>
+            <p><small>Background scan every 60 minutes | Telegram alerts available</small></p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

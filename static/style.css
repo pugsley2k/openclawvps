@@ -1,0 +1,606 @@
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    padding: 30px;
+}
+
+/* ==================== SEARCH SECTION ==================== */
+.search-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ==================== THRESHOLD CONTROL ==================== */
+.threshold-control {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.threshold-control label {
+    font-weight: 600;
+    color: #333;
+}
+
+.threshold-control input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.threshold-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.threshold-control input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.threshold-control small {
+    color: #666;
+    font-style: italic;
+}
+
+/* ==================== RESULTS SECTION ==================== */
+.results-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.market-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid #667eea;
+    border-radius: 4px;
+}
+
+.market-info h3 {
+    font-size: 1.3em;
+    color: #667eea;
+}
+
+.market-info small {
+    color: #666;
+    display: block;
+    margin-top: 5px;
+}
+
+/* ==================== TABS ==================== */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    color: #667eea;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+/* ==================== TAB CONTENT ==================== */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ==================== RESULTS TABLE ==================== */
+.results-table-wrapper {
+    overflow-x: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.results-table thead {
+    background: #667eea;
+    color: white;
+}
+
+.results-table th,
+.results-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.results-table tbody tr:hover {
+    background: #f0f0f0;
+}
+
+.results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.results-table a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.results-table a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.loading {
+    text-align: center;
+    color: #999;
+    padding: 20px !important;
+}
+
+.discount-high {
+    background: #d4edda;
+    color: #155724;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.discount-medium {
+    background: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.discount-low {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* ==================== WATCHLIST SECTION ==================== */
+.watchlist-section,
+.deals-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.watchlist-section h2,
+.deals-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.add-to-watchlist {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.add-to-watchlist input {
+    padding: 10px 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95em;
+    flex: 1;
+    min-width: 150px;
+}
+
+.add-to-watchlist input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.add-to-watchlist input[type="number"] {
+    min-width: 80px;
+    flex: 0;
+}
+
+.watchlist-container,
+.deals-container {
+    background: white;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.placeholder {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* ==================== WATCHLIST ITEMS ==================== */
+.watchlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: white;
+}
+
+.watchlist-item-info {
+    flex: 1;
+}
+
+.watchlist-item-name {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.watchlist-item-details {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.watchlist-item-threshold {
+    background: #667eea;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.remove-btn {
+    padding: 8px 15px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* ==================== DEALS ITEMS ==================== */
+.deal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+    border-left: 4px solid #28a745;
+    background: white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.deal-item-content {
+    flex: 1;
+}
+
+.deal-item-title {
+    font-weight: 600;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.deal-item-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.deal-item-source {
+    background: #667eea;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85em;
+}
+
+.deal-item-discount {
+    background: #28a745;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85em;
+}
+
+.deal-item-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.deal-item-link:hover {
+    text-decoration: underline;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: #f8f9fa;
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    color: #666;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .add-to-watchlist {
+        flex-direction: column;
+    }
+
+    .add-to-watchlist input,
+    .add-to-watchlist input[type="number"] {
+        min-width: auto;
+        flex: 1;
+    }
+
+    .watchlist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .results-table {
+        font-size: 0.9em;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 8px 10px;
+    }
+
+    .deal-item {
+        flex-direction: column;
+    }
+
+    .deal-item-meta {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 20px 15px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .search-section,
+    .results-section,
+    .watchlist-section,
+    .deals-section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results-table tbody tr {
+    animation: fadeIn 0.3s ease;
+}
+
+.watchlist-item,
+.deal-item {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ==================== UTILITIES ==================== */
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
