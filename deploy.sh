@@ -13,7 +13,7 @@ cd $APP_DIR
 
 if [ -d .git ]; then
     echo "[$(date)] Pulling latest code..." >> $LOG_FILE
-    git pull origin main >> $LOG_FILE 2>&1
+    git pull origin master >> $LOG_FILE 2>&1
     if [ $? -ne 0 ]; then
         echo "[$(date)] ERROR: Git pull failed" >> $LOG_FILE
         exit 1
